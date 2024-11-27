@@ -14,7 +14,6 @@ import 'package:qareeb_models/trip_process/data/response/trip_response.dart';
 import '../generated/assets.dart';
 import 'data/models/my_marker.dart';
 
-
 const initialPoint = LatLng(33.514631885313264, 36.27654397981723);
 
 const initialPointBaghdad = LatLng(33.313120604340895, 44.37581771812867);
@@ -56,7 +55,8 @@ extension PathMap on TripPath {
     final list = <MyPolyLine>[];
 
     edges.forEachIndexed((i, e) {
-      list.add(MyPolyLine(key: i, encodedPolyLine: e.steps, color: getColor(i)));
+      list.add(
+          MyPolyLine(key: i, encodedPolyLine: e.steps, color: getColor(i)));
     });
 
     return list;
@@ -132,7 +132,9 @@ extension NormalTripMap on Trip {
           type: MyMarkerType.sharedPint,
           markerKey: startPoint.hashCode),
       MyMarker(
-          point: endPoint, type: MyMarkerType.sharedPint, markerKey: endPoint.hashCode),
+          point: endPoint,
+          type: MyMarkerType.sharedPint,
+          markerKey: endPoint.hashCode),
       if (preAcceptPoint != null)
         MyMarker(
             point: preAcceptPoint!,
@@ -160,7 +162,7 @@ class PathLengthWidget extends StatelessWidget {
         text,
         style: TextStyle(
           color: Colors.black,
-          fontFamily: FontManager.cairoBold.name,
+          // fontFamily: FontManager.cairoBold.name,
         ),
       ),
     );
